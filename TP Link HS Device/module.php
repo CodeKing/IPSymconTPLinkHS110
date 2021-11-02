@@ -1012,21 +1012,21 @@ class TPLinkHS110 extends IPSModule
             $urlparts['host'] = $urlparts['path'];
         }
 
-        if ($urlparts['host'] != '') {
-            /*Add scheme if not found*/
-            if (!isset($urlparts['scheme'])) {
-                $urlparts['scheme'] = 'http';
-            }
+//        if ($urlparts['host'] != '') {
+//            /*Add scheme if not found*/
+//            if (!isset($urlparts['scheme'])) {
+//                $urlparts['scheme'] = 'http';
+//            }
             /*Validation*/
-            if (checkdnsrr($urlparts['host'], 'A') && in_array($urlparts['scheme'], ['http', 'https']) && ip2long($urlparts['host']) === false) {
-                $urlparts['host'] = preg_replace('/^www\./', '', $urlparts['host']);
-                $url              = $urlparts['scheme'] . '://' . $urlparts['host'] . '/';
+//            if (checkdnsrr($urlparts['host'], 'A') && in_array($urlparts['scheme'], ['http', 'https']) && ip2long($urlparts['host']) === false) {
+//                $urlparts['host'] = preg_replace('/^www\./', '', $urlparts['host']);
+//                $url              = $urlparts['scheme'] . '://' . $urlparts['host'] . '/';
 
-                if (filter_var($url, FILTER_VALIDATE_URL) !== false && @get_headers($url)) {
-                    $validation = true;
-                }
-            }
-        }
+//                if (filter_var($url, FILTER_VALIDATE_URL) !== false && @get_headers($url)) {
+//                    $validation = true;
+//                }
+//            }
+//        }
 
         if (!$validation) {
             //echo $url." Its Invalid Domain Name.";
